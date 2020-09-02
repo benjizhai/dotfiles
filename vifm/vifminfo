@@ -1,0 +1,238 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/benji/
+	..
+1598946591
+'b
+	/home/benji/bin/
+	..
+1598946591
+'h
+	/home/benji/
+	..
+1598946591
+'z
+	/home/benji/.config/vifm
+	..
+1598946591
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/benji/.config/nvim
+	..
+0
+d/home/benji/.config
+	nvim
+39
+d/home/benji/.config/nvim
+	..
+0
+d/home/benji/.config
+	nvim
+39
+d/home/benji
+	..
+0
+d/home
+	benji
+1
+d/home/benji
+	..
+0
+d/home
+	benji
+1
+d/home/benji/.config/nvim
+	..
+0
+d/home/benji
+	..
+0
+d/home
+	benji
+1
+d/home/benji
+	..
+0
+d/home
+	benji
+1
+d/
+	home
+5
+d/home
+	benji
+1
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	Screenshot from 2020-08-30 13-52-29.png
+2
+d/home/benji/.config/vifm
+	vifm-help.txt
+3
+d/home/benji/.config
+	vifm
+50
+d/home/benji/.config/vifm
+	scripts
+2
+d/home/benji
+	Public
+6
+d/home/benji/Public
+	..
+0
+d/home/benji
+	Videos
+9
+d/home/benji/.config/vifm
+	scripts
+2
+d/home/benji/.config
+	vifm
+50
+d/home/benji/.config/vifm
+	scripts
+2
+d/home/benji/.local/bin
+	..
+0
+d/home/benji/.local
+	..
+0
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	Screenshots
+1
+d/home/benji/Pictures/Screenshots
+	..
+0
+d/home/benji/Pictures
+	eiger-blurred.jpg
+3
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	eiger-blurred.jpg
+3
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	eiger-blurred.jpg
+3
+d/home/benji/.local/bin
+	..
+0
+d/home/benji/.local
+	..
+0
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	red_and_blue-wallpaper-1920x1200.jpg
+7
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	red_and_blue-wallpaper-1920x1200.jpg
+7
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	eiger.jpg
+4
+d/home/benji/.local/bin
+	..
+0
+d/home/benji/.local
+	..
+0
+d/home/benji
+	Music
+4
+d/home/benji/Music
+	..
+0
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	eiger.jpg
+4
+d/home/benji/.config/nvim
+	..
+0
+d/home/benji/.config
+	..
+0
+d/home/benji
+	..
+0
+d/home
+	benji
+1
+d/home/benji
+	Pictures
+5
+d/home/benji/Pictures
+	red_and_blue-wallpaper-2560x1600.jpg
+9
+d
+
+# Right window history (oldest to newest):
+D/home/benji/.config/nvim
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:set rulerformat="%=%2l-%S [%L] "
+:view
+:!pwd
+:runexec
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/benji/Pictures/eiger-blurred.jpg
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0

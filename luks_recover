@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# check sudo privileges
+if ! [ $(id -u) = 0 ]; then
+   echo "The script need to be run as root." >&2
+   exit 1
+fi
+
+if [ $SUDO_USER ]; then
+    real_user=$SUDO_USER
+else
+    real_user=$(whoami)
+fi
+
+cryptsetup open --type=luks /dev/nvme0n1p5 nvme0n1p5_crypt
+cryptsetup open --type=luks /dev/nvme0n1p1 LUKS_BOOT
+mkdir -p /target
+mount /dev/mapper/ubuntu--vg-root /target
+for n in proc sys dev etc/resolv.conf; do mount --rbind /$n /target/$n; done
+mount /dev/mapper/LUKS_BOOT /target/boot
+mount /dev/nvme0n1p3 /target/boot/efi
+chroot /target
+mount -a
+update-initramfs -u -k all
+exit
+update-grub

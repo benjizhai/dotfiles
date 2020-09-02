@@ -1,0 +1,90 @@
+conky.config = {
+-- Conky settings --
+background = false,
+update_interval = 3,
+short_units = true,
+pad_percents = 2,
+ 
+cpu_avg_samples = 2,
+net_avg_samples = 2,
+ 
+override_utf8_locale = true,
+ 
+double_buffer = true,
+no_buffers = true,
+ 
+text_buffer_size = 2048,
+imlib_cache_size = 0,
+ 
+-- Window specifications --
+ 
+own_window = true,
+own_window_type = 'desktop',
+own_window_transparent = false,
+own_window_argb_visual = true,
+own_window_argb_value = 0,
+own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+ 
+border_inner_margin = 0,
+border_outer_margin = 0,
+ 
+minimum_width = 240,
+minimum_height = 160,
+maximum_width = 240,
+ 
+alignment = 'top_left', 
+gap_x = 70,
+gap_y = 672,
+ 
+-- Graphics settings --
+draw_shades = false,
+draw_outline = false,
+draw_borders = false,
+draw_graph_borders = false,
+ 
+-- Text settings --
+use_xft = true,
+font = 'InconsolataNerdFont-Medium:size=12',
+xftalpha = 0.8,
+ 
+uppercase = false,
+
+default_color = 'ffffff',
+ 
+};
+ 
+conky.text = [[
+${image ~/.conky/img/net.png -p 0,10 -s 50x40}${goto 65}${font InconsolataNerdFont-Medium:size=14}${if_existing /sys/class/net/enp2s0/operstate up}ETH ${endif}${if_existing /sys/class/net/enp2s0/operstate up}${if_existing /sys/class/net/wlp1s0/operstate up}& ${endif}${endif}${if_existing /sys/class/net/wlp1s0/operstate up}WiFi ${alignr}${wireless_essid wlp1s0}${else}${if_existing /sys/class/net/enp2s0/operstate up}${else}${goto 50}Network not available${endif}${endif}${font}
+# |--ETH
+${if_existing /sys/class/net/enp2s0/operstate up}${font InconsolataNerdFont-Medium:size=11}${goto 65}Local IP: ${alignr}${addr enp2s0}
+${goto 65}Public IP: ${alignr}${execi 300 ~/.conky/bin/conkyip}
+${goto 65}MAC: ${alignr}${exec ~/.conky/bin/conkyethmac}${font}
+
+${font Noto-sans:size=16}⇧ ${font}${upspeed enp2s0} ${alignr}${downspeed enp2s0}${voffset -5}${font Noto-sans:size=16} ⇩${font}
+
+Traffic today ${alignr}${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f6}
+${font Noto-sans:size=12}⬆${font} ${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f5} ${alignr}${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f4} ${font Noto-sans:size=12}⬇${font}
+
+Traffic this month ${alignr}${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f11}
+${font Noto-sans:size=12}⬆${font} ${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f10} ${alignr}${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f9} ${font Noto-sans:size=12}⬇${font}
+
+All time traffic ${alignr}${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f15}
+${font Noto-sans:size=12}⬆${font} ${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f14} ${alignr}${execi 60 vnstat -i enp2s0 --oneline | cut -d\; -f13} ${font Noto-sans:size=12}⬇${font}
+# |--WiFi
+${else}${if_existing /sys/class/net/wlp1s0/operstate up}${font InconsolataNerdFont-Medium:size=11}${goto 65}Local IP: ${alignr}${addr wlp1s0}
+${goto 65}Public IP: ${alignr}${execi 300 ~/.conky/bin/conkyip}
+${goto 65}MAC: ${alignr}${wireless_ap wlp1s0}${font}
+
+${font Noto-sans:size=16}⇧ ${font}${upspeed wlp1s0} ${alignr}${downspeed wlp1s0}${voffset -5}${font Noto-sans:size=16} ⇩${font}
+
+Traffic today ${alignr}${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f6}
+${font Noto-sans:size=12}⬆${font} ${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f5} ${alignr}${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f4} ${font Noto-sans:size=12}⬇${font}
+
+Traffic this month ${alignr}${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f11}
+${font Noto-sans:size=12}⬆${font} ${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f10} ${alignr}${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f9} ${font Noto-sans:size=12}⬇${font}
+
+All time traffic ${alignr}${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f15}
+${font Noto-sans:size=12}⬆${font} ${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f14} ${alignr}${execi 60 vnstat -i wlp1s0 --oneline | cut -d\; -f13} ${font Noto-sans:size=12}⬇${font}
+
+${endif}${endif}
+]];

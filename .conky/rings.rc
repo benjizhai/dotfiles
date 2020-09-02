@@ -1,0 +1,68 @@
+conky.config = {
+-- Conky settings --
+background = false,
+update_interval = 1,
+short_units = true,
+pad_percents = 2,
+ 
+cpu_avg_samples = 2,
+net_avg_samples = 2,
+ 
+override_utf8_locale = true,
+ 
+double_buffer = true,
+no_buffers = true,
+ 
+text_buffer_size = 2048,
+imlib_cache_size = 0,
+ 
+-- Window specifications --
+ 
+own_window = true,
+own_window_type = 'desktop',
+own_window_transparent = false,
+own_window_argb_visual = true,
+own_window_argb_value = 0,
+own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+ 
+border_inner_margin = 0,
+border_outer_margin = 0,
+ 
+minimum_width = 920,
+minimum_height = 300,
+maximum_width = 1024,
+ 
+alignment = 'top_left', 
+gap_x = 120,
+gap_y = 80,
+ 
+-- Graphics settings --
+draw_shades = false,
+draw_outline = false,
+draw_borders = false,
+draw_graph_borders = false,
+ 
+-- Text settings --
+use_xft = true,
+font = 'InconsolataNerdFont-Medium:size=18',
+xftalpha = 0.4,
+ 
+uppercase = false,
+ 
+default_color = 'ffffff',
+ 
+-- Lua Load --
+lua_load = '~/.conky/lua/clock_rings.lua',
+lua_draw_hook_pre = 'clock_rings',
+
+};
+
+conky.text = [[
+${image ~/.conky/img/l1.png -p 10,30 -s 90x90}${font InconsolataNerdFont-Medium:size=12}  Root   ${fs_used /}/${fs_size /}                ${if_mounted /media/benji/DATA}${image ~/.conky/img/l2.png -p 265,30 -s 50x50}Data   ${fs_used /media/benji/DATA}/${fs_size /media/benji/DATA}${endif}${font}
+${voffset 110}${goto 160}${font InconsolataNerdFont-Medium:size=24}${time %H:%M}${voffset -10}${font InconsolataNerdFont-Medium:size=10}${font}
+${voffset -28}${goto 308}${hr 1}
+${voffset -85}${goto 318}${cpugraph 65,485 aaaaaa aaaaaa -l} #${voffset -18} ${alignr} ${execi 60 ~/.conky/gmailnotify.sh}
+${voffset 25}${goto 330}${time %A, %d %B %Y}
+${voffset 0}${font InconsolataNerdFont-Medium:size=11.5}${goto 330}Uptime ${uptime_short} ${sysname}-${kernel}${font}						
+${font InconsolataNerdFont-Medium:size=13}${voffset -175}${goto 300}${image ~/.conky/img/l3.png -p 280,93 -s 75x21}Battery ${if_existing /sys/class/power_supply/BAT0/online 1}${battery BAT0}${else}disconnected${endif}
+]];
